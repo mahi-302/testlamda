@@ -1,6 +1,6 @@
-import os
-import boto3
-import json
+import os{}
+import boto3{}
+import json{}
 AMI = os.environ["ami-0fb653ca2d3203ac1"]
 INSTANCE_TYPE = os.environ["t2.micro"]
 KEY_NAME = os.environ["Ec2all"]
@@ -13,5 +13,5 @@ init_script = """"#!/bin/bash
  sudo apt-get install apache2 -y""""
 def lambda_handler(event, context):
  instance = ec2.run_instances(ImageId=AMI,InstanceType=INSTANCE_TYPE,KeyName=KEY_NAME,SubnetId=SUBNET_ID,MaxCount=1,MinCount=1,UserData=init_script)
- instance_id = instance['Instances'][0]["i-0ae95d4c23948efa5"]
+ instance_id = instance["Instances"][0]["i-0ae95d4c23948efa5"]
  return instance_id
